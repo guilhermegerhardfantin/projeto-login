@@ -5,6 +5,9 @@ let form = document.querySelector("#login-form");
 let usuariocerto = "admin";
 let senhacerta = "123";
 let mensagem = document.querySelector("#mensagem");
+let mostrarsenha = document.querySelector("#mostrar-senha");
+let body = document.querySelector("body");
+let darkMode = document.querySelector("#dark-mode");
 // Fim das variaveis
 
 function login(event) {
@@ -29,3 +32,20 @@ function login(event) {
 
 // escutando o evento de evente de enviar o form
 form.addEventListener("submit", login);
+
+mostrarsenha.addEventListener("click", () => {
+  if (senha.type == "password") {
+    senha.type = "text";
+  } else {
+    senha.type = "password";
+  }
+});
+darkMode.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if(body.classList.contains("dark")){
+    darkMode.textContent = "🌞"
+  }
+  else {
+    darkMode.textContent = "🌚"
+  }
+});
